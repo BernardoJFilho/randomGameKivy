@@ -10,7 +10,6 @@ api = requestApi()
 
 def filtringApi(type):
     result = []
-    print(type)
     for j in type:
         for i in api:
             if i['genre'] == j:
@@ -37,7 +36,7 @@ class randomGameSelector(App):
         self.root.ids['img'].source = img
         self.root.ids['plataforma'].text = f'Plataforma: {game["platform"]}'
         self.root.ids['publisher'].text = f'Empresa: {game["publisher"]}'
-        self.root.ids['genero'].text = f'Empresa: {game["genre"]}'
+        self.root.ids['genero'].text = f'Tipo: {game["genre"]}'
         self.root.ids['release_date'].text = f'Data de lançamento: {game["release_date"]}'
         self.root.ids['site'].text = game['game_url']
 
