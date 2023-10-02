@@ -3,6 +3,7 @@ from kivy.lang import Builder
 from random import choice
 from api import requestApi
 from requestImg import getImg
+import webbrowser
 import time
 
 api = requestApi()
@@ -43,10 +44,22 @@ BoxLayout:
 
     Image:
         id: img
-        source: ''
+        source: 'src/images/images.jpg'
         size_hint: None, None
         size: 200, 200
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+    Label:
+        id: plataforma
+        text: ''
+    
+    Button:
+        id: site
+        text: ''
+        background_normal: ''
+        background_color: 0, 0, 0, 0  # Define o botão sem aparência de botão
+        color: 0, 0, 1, 1  # Cor do texto (azul)
+        on_release: app.open_link()
 
     Button:
         id: button
@@ -79,10 +92,14 @@ class AppGame(App):
     def randomizeGame(self):
         game = getId(api)
         img = getImg(game)
-        print(game)
-        # time.sleep(2.5)
+        time.sleep(2.5)
         self.root.ids['textLabel'].text = game['title']
+        self.root.ids['plataforma'].text = game['platform']
+        self.root.ids['site'].text = game['game_url']
         self.root.ids['img'].source = img
+        
+    def open_link(self):
+        webbrowser.open(self.root.ids['site'].text)
 
         
 
