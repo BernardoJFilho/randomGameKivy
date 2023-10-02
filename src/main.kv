@@ -1,0 +1,81 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    Label:
+        id: titulo
+        text: 'Qual jogo voce quer jogar hoje?'
+        font_size: 20
+
+    BoxLayout:
+        orientation: 'horizontal'
+        # spacing: 5
+
+        BoxLayout:
+            CheckBox:
+                id: strategy
+                text: 'Strategy'
+                padding: [0, 0]
+                on_active: app.statusCheckbox()
+            Label:
+                text: 'Strategy'
+                size_hint_x: None
+
+        BoxLayout:
+            CheckBox:
+                id: mmorpg
+                text: 'MMORPG'
+                padding: [0, 0]
+                on_active: app.statusCheckbox()
+            Label:
+                text: 'MMORPG'
+                size_hint_x: None
+
+        BoxLayout:
+            CheckBox:
+                id: shooter
+                text: 'Shooter'
+                padding: [0, 0]
+                on_active: app.statusCheckbox()
+            Label:
+                text: 'Shooter'
+                size_hint_x: None
+    
+    Label:
+        id: textLabel
+        text: ''
+        font_size: 20
+
+    Image:
+        id: img
+        source: 'src/images/images.jpg'
+        size_hint: None, None
+        size: 200, 200
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        
+    Label:
+        id: plataforma
+        text: ''
+
+    Label:
+        id: publisher
+        text: ''
+    
+    Label:
+        id: genero
+        text: ''
+
+    Button:
+        id: site
+        text: ''
+        background_normal: ''
+        background_color: 0, 0, 0, 0  # Define o botão sem aparência de botão
+        color: 0, 0, 1, 1  # Cor do texto (azul)
+        on_release: app.open_link()
+
+    Button:
+        id: button
+        on_press: app.randomizeGame()
+        text: 'Start'
+        size_hint: None, None
+        size: 150, 50
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
