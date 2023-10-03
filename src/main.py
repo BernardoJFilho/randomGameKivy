@@ -52,10 +52,10 @@ class randomGameSelector(App):
         for i in checkbox:
             if i.active:
                 arrayText.append(i.text)
-            elif len(arrayText) == 0:
-                return api
+        if len(arrayText) == 0:
+            return api
         return filtringApi(arrayText)
-            
+
 
 
 
